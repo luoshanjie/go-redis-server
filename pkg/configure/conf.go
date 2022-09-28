@@ -22,7 +22,10 @@ func NewServerProperties(configFileName string) *ServerProperties {
 	return parse(f)
 }
 
-// ------------------------------------------------------------------------------
+// -----------------------------------------------------------------------------
+//
+// -----------------------------------------------------------------------------
+
 func parse(src io.Reader) *ServerProperties {
 	config := &ServerProperties{}
 	rawMap := make(map[string]string)

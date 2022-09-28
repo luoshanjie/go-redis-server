@@ -4,6 +4,8 @@ import (
 	"fmt"
 	"os"
 
+	"go-redis-server/internal/delivery"
+	"go-redis-server/internal/service"
 	"go-redis-server/pkg/configure"
 )
 
@@ -23,6 +25,8 @@ func init() {
 
 func main() {
 	print(banner)
-	s := configure.NewServerProperties(filename)
-	fmt.Println(s.Bind)
+	properties := configure.NewServerProperties(filename)
+	tcp := delivery.NewTCPDelivery(properties)
+	agent := service.NewAgent(tcp)
+	print(agent.Run())
 }
