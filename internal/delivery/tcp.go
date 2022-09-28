@@ -21,11 +21,12 @@ func NewTCPDelivery(properties *configure.ServerProperties) domain.TCPDelivery {
 
 func (that *tcpDelivery) ListenAndServeWitSignal() error {
 	address := fmt.Sprintf("%s:%d", that.properties.Bind, that.properties.Port)
-	print("listen: ", address)
+	print("listen: ", address, "\n")
 	listener, err := net.Listen("tcp", address)
 	if err != nil {
 		return err
 	}
+
 	for {
 		_, err := listener.Accept()
 		if err != nil {
