@@ -18,4 +18,4 @@ $ docker run -itd container-redis -p 6339:6339 go-redis-server:1.0
 
 
 # License
-This project is licensed under the [Apache license](https://github.com/luoshanjie/go-redis-server/blob/master/LICENSE)
+This project is licensed under the [Apache License 2.0](https://github.com/luoshanjie/go-redis-server/blob/master/LICENSE)
