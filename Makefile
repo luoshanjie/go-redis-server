@@ -1,4 +1,4 @@
-.DEFAULT_GOAL=run
+.DEFAULT_GOAL=test
 PROJECT_NAME=go-redis-server
 BINARY=rediserver
 OUTFILE=c.out
@@ -29,4 +29,9 @@ test:
 	@echo "[${PROJECT_NAME}] test"
 	@go test ./...
 
-.PHONY: dep build test cover clean check lint help
+# 自动生成
+gen:
+	@echo "[${PROJECT_NAME}] gen"
+	@@go generate ./internal/domain
+
+.PHONY: dep clean build run test
