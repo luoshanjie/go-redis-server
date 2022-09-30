@@ -19,7 +19,7 @@ func NewTCPDelivery(properties *configure.ServerProperties) domain.TCPDelivery {
 //
 // -----------------------------------------------------------------------------
 
-func (that *tcpDelivery) ListenAndServeWitSignal() error {
+func (that *tcpDelivery) ListenAndServer() error {
 	address := fmt.Sprintf("%s:%d", that.properties.Bind, that.properties.Port)
 	print("listen: ", address, "\n")
 	listener, err := net.Listen("tcp", address)
@@ -39,3 +39,5 @@ func (that *tcpDelivery) ListenAndServeWitSignal() error {
 
 	return nil
 }
+
+var _ domain.TCPDelivery = new(tcpDelivery)

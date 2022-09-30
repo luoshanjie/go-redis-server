@@ -27,6 +27,5 @@ func main() {
 	print(banner)
 	properties := configure.NewServerProperties(filename)
 	tcp := delivery.NewTCPDelivery(properties)
-	agent := service.NewAgent(tcp)
-	print(agent.Run())
+	print(service.NewBaseService(tcp).Run())
 }

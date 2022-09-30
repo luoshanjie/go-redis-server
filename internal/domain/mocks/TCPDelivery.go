@@ -9,8 +9,8 @@ type TCPDelivery struct {
 	mock.Mock
 }
 
-// ListenAndServeWitSignal provides a mock function with given fields:
-func (_m *TCPDelivery) ListenAndServeWitSignal() error {
+// ListenAndServer provides a mock function with given fields:
+func (_m *TCPDelivery) ListenAndServer() error {
 	ret := _m.Called()
 
 	var r0 error
