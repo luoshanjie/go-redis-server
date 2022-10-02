@@ -2,6 +2,7 @@ package configure
 
 import (
 	"bufio"
+	"fmt"
 	"io"
 	"os"
 	"reflect"
@@ -14,8 +15,11 @@ type ServerProperties struct {
 	Port int    `cfg:"port"`
 }
 
-func NewServerProperties(configFileName string) *ServerProperties {
-	f, err := os.Open(configFileName)
+func NewServerProperties() *ServerProperties {
+	current, _ := os.Getwd()
+	filename := fmt.Sprintf("%s/conf/redis.conf", current)
+
+	f, err := os.Open(filename)
 	if err != nil {
 		panic(err)
 	}

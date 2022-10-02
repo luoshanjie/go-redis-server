@@ -32,6 +32,7 @@ test:
 # 自动生成
 gen:
 	@echo "[${PROJECT_NAME}] gen"
-	@@go generate ./internal/domain
+	@go generate ./internal/domain
+	@wire ./...
 
-.PHONY: dep clean build run test
+.PHONY: dep clean build run test gen
